@@ -1,0 +1,15 @@
+﻿version: "3.9"
+services:
+  postgres:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ems
+      POSTGRES_PASSWORD: ems_dev_password
+      POSTGRES_DB: ems
+    ports:
+      - "5432:5432"
+    volumes:
+      - ems_pg_data:/var/lib/postgresql/data
+volumes:
+  ems_pg_data:
